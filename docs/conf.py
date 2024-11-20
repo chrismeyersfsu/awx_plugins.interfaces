@@ -73,6 +73,7 @@ extensions = [
 
     # Third-party extensions:
     'myst_parser',  # extended markdown; https://pypi.org/project/myst-parser/
+    'sphinx_autodoc_typehints',  # gets function param types from annotations
     'sphinx_issues',  # implements `:issue:`, `:pr:` and other GH-related roles
     'sphinx_tabs.tabs',
     'sphinxcontrib.apidoc',
@@ -125,6 +126,14 @@ myst_heading_anchors = 3
 autodoc_default_options = {
     'ignore-module-all': True,
 }
+
+# -- Options for sphinx_autodoc_typehints extension --------------------------
+
+always_document_param_types = True
+always_use_bars_union = True
+typehints_defaults = 'comma'
+typehints_use_signature = True
+typehints_use_signature_return = True
 
 # -- Options for sphinxcontrib.apidoc extension ------------------------------
 

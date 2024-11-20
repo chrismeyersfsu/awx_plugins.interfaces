@@ -71,7 +71,6 @@ def setup(app: Sphinx) -> dict[str, bool | str]:
     """Initialize the extension.
 
     :param app: A Sphinx application object.
-    :type app: Sphinx
     :returns: Extension metadata as a dict.
     """
     if _EnchantTokenizeFilterBase is object:

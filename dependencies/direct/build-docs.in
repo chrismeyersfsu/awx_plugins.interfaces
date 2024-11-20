@@ -3,6 +3,7 @@
 furo  # modern Sphinx theme
 myst-parser[linkify]  # Markdown documents support w/ in-text link detector
 Sphinx  # main docs framework
+sphinx-autodoc-typehints  # gets function param types from annotations
 sphinx-issues  # Sphinx roles providing support for linking GitHub
 sphinx-tabs  # Sphinx directives providing support for HTML tabs
 sphinxcontrib-apidoc  # automatic API pages generator

@@ -46,11 +46,8 @@ def get_constraint_file_path(  # noqa: WPS210 -- no way to drop vars
     """Identify the constraints filename for the current environment.
 
     :param req_dir: Requirements directory.
-    :type req_dir: pathlib.Path | str
     :param toxenv: tox testenv.
-    :type toxenv: str
     :param python_tag: Python tag.
-    :type python_tag: str
     :returns: Constraints filename for the current environment.
     """
     sys_platform = sys.platform
@@ -77,9 +74,7 @@ def make_pip_cmd(
     """Inject a lockfile constraint into the pip command if present.
 
     :param pip_args: pip arguments.
-    :type pip_args: list[str]
     :param constraint_file_path: Path to a ``constraints.txt``-compatible file.
-    :type constraint_file_path: pathlib.Path
 
     :returns: pip command.
     """
@@ -98,7 +93,6 @@ def run_cmd(cmd: list[str] | tuple[str, ...]) -> None:
     """Invoke a shell command after logging it.
 
     :param cmd: The command to invoke.
-    :type cmd: list[str] | tuple[str, ...]
     """
     escaped_cmd = shlex.join(cmd)
     print(f'Invoking the following command: {escaped_cmd !s}')  # noqa: WPS421

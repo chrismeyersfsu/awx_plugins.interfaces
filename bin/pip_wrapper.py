@@ -16,11 +16,8 @@ def main(req_dir: str, toxenv: str, *pip_args: tuple[str, ...]) -> None:
     """Invoke pip with the matching constraints file, if present.
 
     :param req_dir: Requirements directory path.
-    :type req_dir: str
     :param toxenv: Tox env name.
-    :type toxenv: str
     :param pip_args: Iterable of args to bypass to pip.
-    :type pip_args: tuple[str, ...]
     """
     constraint_file_path = get_constraint_file_path(
         req_dir=req_dir,

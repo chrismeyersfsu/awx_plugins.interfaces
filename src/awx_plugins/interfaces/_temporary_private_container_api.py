@@ -28,17 +28,13 @@ def get_incontainer_path(
     to ``/runner``.
 
     :param path: Host-side path view.
-    :type path: os.PathLike[str] | str
-
     :param private_data_dir: Host-side directory mounted to ``/runner``
                              in container.
-    :type private_data_dir: os.PathLike[str] | str
 
     :raises RuntimeError: If the private data directory is not absolute or does
                           not contain the path.
 
     :returns: In-container path.
-    :rtype: str
     """
     if not os.path.isabs(private_data_dir):
         raise RuntimeError('The private_data_dir path must be absolute')

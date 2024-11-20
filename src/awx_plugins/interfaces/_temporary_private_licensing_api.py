@@ -15,7 +15,6 @@ def detect_server_product_name() -> str:
     """Compute the official runtime name.
 
     :returns: Runtime name.
-    :rtype: str
     """
     custom_version_file_present = pathlib.Path(
         '/var/lib/awx/.tower_version',

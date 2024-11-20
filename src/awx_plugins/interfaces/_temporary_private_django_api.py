@@ -14,7 +14,6 @@ except ImportError:
         This is a stub for when there is no Django in the environment.
 
         :returns: Whether the certificates should be validated.
-        :rtype: bool
         """
         return True
 else:  # FIXME: eventually, this should not exist  # pragma: no cover
@@ -22,7 +21,6 @@ else:  # FIXME: eventually, this should not exist  # pragma: no cover
         """Retrieve VMware certificate validation platform toggle.
 
         :returns: Whether the certificates should be validated.
-        :rtype: bool
         """
         return settings.VMWARE_VALIDATE_CERTS
 
@@ -38,9 +36,7 @@ except ImportError:  # FIXME: eventually, this should not exist
         """Emulate a Django-imported lazy translator.
 
         :param message: Translatable string.
-        :type message: str
         :returns: Whatever's been passed in.
-        :rtype: str
         """
         return message
 
@@ -56,9 +52,7 @@ except ImportError:  # FIXME: eventually, this should not exist
         """Emulate a Django-imported no-op.
 
         :param message: Translatable string.
-        :type message: str
         :returns: Whatever's been passed in.
-        :rtype: str
         """
         return message
 

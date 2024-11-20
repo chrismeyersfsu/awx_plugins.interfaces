@@ -15,7 +15,6 @@ def compute_constraint_base_name(toxenv: str) -> str:
     """Get the lock file name stem.
 
     :param toxenv: Name of the tox env.
-    :type toxenv: str
     :returns: A platform-specific lock file base name for tox env.
     """
     return get_constraint_file_path(

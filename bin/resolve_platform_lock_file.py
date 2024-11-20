@@ -17,11 +17,9 @@ def generate_lock_for(
     """Generate a patform-specific lock file for given tox env.
 
     :param req_dir: Requirements directory path.
-    :type req_dir: str
     :param toxenv: Tox env name.
-    :type toxenv: str
-    :param pip_compile_extra_args: Iterable of args to bypass to pip-compile.
-    :type pip_compile_extra_args: tuple[str, ...]
+    :param pip_compile_extra_args: Iterable of args to bypass to pip-
+        compile.
     """
     lock_file_name = get_constraint_file_path(
         req_dir, toxenv, get_runtime_python_tag(),
