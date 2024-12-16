@@ -6,6 +6,8 @@ The hope is that it will be refactored into something more standardized.
 GenericOptionalPrimitiveType = bool | str | int | float | None  # noqa: WPS465
 """Generic type for input values."""
 
+CredentialInputType = dict[str, GenericOptionalPrimitiveType]
+
 
 class Credential:
     """Input supplied by the user.
@@ -16,9 +18,9 @@ class Credential:
 
     def __init__(
         self: 'Credential',
-        inputs: dict[str, GenericOptionalPrimitiveType] | None = None,
+        inputs: CredentialInputType | None = None,
     ) -> None:
-        self._inputs: dict[str, GenericOptionalPrimitiveType] = inputs or {}
+        self._inputs: CredentialInputType = inputs or {}
 
     def get_input(
             self: 'Credential',
@@ -46,6 +48,15 @@ class Credential:
         :returns: True if user supplied a value, False otherwise.
         """
         return self._inputs.get(field_name, None) not in {'', None}
+
+    def get_input_keys(self: 'Credential') -> list[str]:
+        """Get the list of keys that can be used for input.
+
+        Get a list of keys that can be used to get values for.
+
+        :returns: List of strings for which input can be gotten.
+        """
+        return list(self._inputs.keys())
 
 
 __all__ = ()  # noqa: WPS410

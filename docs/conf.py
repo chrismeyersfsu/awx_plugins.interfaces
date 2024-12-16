@@ -212,4 +212,7 @@ nitpicky = True
 # Ref: https://stackoverflow.com/a/30624034/595220
 nitpick_ignore = [
     # temporarily listed ('role', 'reference') pairs that Sphinx cannot resolve
+    ('py:class', 'ExtraVarsType'),
+    ('py:class', 'EnvVarsType'),
+    ('py:class', 'jinja2.sandbox.ImmutableSandboxedEnvironment'),
 ]

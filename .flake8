@@ -110,6 +110,10 @@ per-file-ignores =
   # additionally test docstrings don't need param lists (DAR, DCO020):
   tests/**.py: DAR, DCO020, S101, S105, S108, S404, S603, WPS202, WPS210, WPS430, WPS436, WPS441, WPS442, WPS450
 
+  tests/_temporary_private_inject_api_test.py: DAR, DCO020, S101, S105, S108, S404, S603, WPS202, WPS210, WPS226, WPS430, WPS436, WPS441, WPS442, WPS450, WPS201
+
+  src/awx_plugins/interfaces/_temporary_private_inject_api.py: ANN001,ANN201,B950,C901,CCR001,D103,E800,LN001,LN002,Q003,WPS110,WPS111,WPS118,WPS125,WPS204,WPS210,WPS211,WPS213,WPS221,WPS226,WPS231,WPS232,WPS319,WPS323,WPS336,WPS337,WPS361,WPS421,WPS429,WPS430,WPS431,WPS436,WPS442,WPS503,WPS507,WPS516,WPS226
+
 # Count the number of occurrences of each error/warning code and print a report:
 statistics = true
 
