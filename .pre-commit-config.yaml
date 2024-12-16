@@ -196,6 +196,8 @@ repos:
     - lxml  # dep of `--txt-report`, `--cobertura-xml-report` & `--html-report`
     - pytest
     - pytest-mock
+    - types-Jinja2
+    - types-PyYAML
     args:
     - --python-version=3.13
     - --any-exprs-report=.tox/.tmp/.test-results/mypy--py-3.13
@@ -214,6 +216,8 @@ repos:
     - lxml  # dep of `--txt-report`, `--cobertura-xml-report` & `--html-report`
     - pytest
     - pytest-mock
+    - types-Jinja2
+    - types-PyYAML
     args:
     - --python-version=3.12
     - --any-exprs-report=.tox/.tmp/.test-results/mypy--py-3.12
@@ -232,6 +236,8 @@ repos:
     - lxml  # dep of `--txt-report`, `--cobertura-xml-report` & `--html-report`
     - pytest
     - pytest-mock
+    - types-Jinja2
+    - types-PyYAML
     args:
     - --python-version=3.11
     - --any-exprs-report=.tox/.tmp/.test-results/mypy--py-3.11
@@ -255,5 +261,6 @@ repos:
     - pytest-mock  # needed by pylint-pytest since it picks up pytest's args
     - pytest-xdist  # needed by pylint-pytest since it picks up pytest's args
     - Sphinx  # needed by the Sphinx extension stub
+    - PyYaml  # ModuleNotFoundError: No module named 'yaml' without this
 
 ...

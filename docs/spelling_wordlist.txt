@@ -1,8 +1,12 @@
+ansible
+ansible-playbook
 Ansible
 filesystem
 hasn
 namespace
 Pre
+submodule
 Submodules
 Subpackages
+subprocess
 VMware

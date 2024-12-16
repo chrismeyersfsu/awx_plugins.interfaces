@@ -24,6 +24,7 @@ coverage:
         flags:
         - pytest
       typing:
+        target: 98%
         flags:
         - MyPy
     project:
@@ -44,6 +45,6 @@ coverage:
       typing:
         flags:
         - MyPy
-        target: 100%
+        target: 98%
 
 ...

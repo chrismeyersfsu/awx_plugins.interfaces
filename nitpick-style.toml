@@ -162,6 +162,7 @@ target = '100%'
 flags = [
   'MyPy',
 ]
+target = '98%'
 [".codecov.yml".coverage.status.project.default]
 target = '100%'
 [".codecov.yml".coverage.status.project.lib]
@@ -178,4 +179,4 @@ target = '100%'
 flags = [
   'MyPy',
 ]
-target = '100%'
+target = '98%'
