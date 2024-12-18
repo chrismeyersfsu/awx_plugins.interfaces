@@ -394,6 +394,29 @@ def test_injectors_with_extra_vars(
     assert expected_extra_vars.items() <= extra_vars.items()
 
 
+def test_injectors_inv_update_id(private_data_dir: str) -> None:
+    """Check that extra vars are not injected for an inventory update."""
+    cred_type = ManagedCredentialType(
+        namespace='animal',
+        name='dog',
+        kind='companion',
+        managed=True,
+        inputs={},
+        injectors={'extra_vars': {'do-not-inject': 'should-not-inject'}},
+    )
+    args: ArgsType = []
+    inject_credential(
+        cred_type,
+        Credential(inputs={}),
+        {'INVENTORY_UPDATE_ID': '1'},
+        {},
+        args,
+        private_data_dir,
+    )
+
+    assert not args
+
+
 @pytest.mark.parametrize(
     (
         'inputs',

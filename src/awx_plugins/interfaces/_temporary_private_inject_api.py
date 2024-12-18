@@ -277,17 +277,18 @@ def inject_credential(
             tmpl,
         ).render(**safe_namespace)
 
-    extra_vars = _build_extra_vars(
-        sandbox_env,
-        namespace,
-        cred_type.injectors.get(
-            'extra_vars', {},
-        ),
-    )
-    if extra_vars:
-        path = _build_extra_vars_file(extra_vars, private_data_dir)
-        container_path = get_incontainer_path(path, private_data_dir)
-        args.extend(
-            # pylint: disable-next=consider-using-f-string
-            ['-e', '@%s' % container_path],
+    if 'INVENTORY_UPDATE_ID' not in env:
+        extra_vars = _build_extra_vars(
+            sandbox_env,
+            namespace,
+            cred_type.injectors.get(
+                'extra_vars', {},
+            ),
         )
+        if extra_vars:
+            path = _build_extra_vars_file(extra_vars, private_data_dir)
+            container_path = get_incontainer_path(path, private_data_dir)
+            args.extend(
+                # pylint: disable-next=consider-using-f-string
+                ['-e', '@%s' % container_path],
+            )
