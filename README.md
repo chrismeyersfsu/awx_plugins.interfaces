@@ -54,3 +54,91 @@ https://readthedocs.org/projects/awx-plugins-interfaces/badge/?version=latest
 <!-- DO-NOT-REMOVE-docs-intro-START -->
 Common interfaces for implementing plugins to AWX.
 <!-- DO-NOT-REMOVE-docs-intro-END -->
+
+## Features
+
+This package provides standardized interfaces and utilities for developing AWX plugins, with a focus on:
+
+- **HashiCorp Vault Integration**: Native Python interfaces for Vault secret plugins
+- **Ctypes Go Bridge**: Direct integration with Go shared libraries without subprocess overhead  
+- **Plugin Discovery**: Automatic discovery of installed plugin libraries
+- **Type Safety**: Comprehensive type hints and protocol definitions
+- **Error Handling**: Structured exception hierarchy for plugin operations
+
+## HashiCorp Vault Plugin Support
+
+AWX can now integrate with HashiCorp Vault secret plugins directly through Python using ctypes, eliminating the need for subprocess calls to Go binaries.
+
+### Key Components
+
+- **VaultPlugin Interface**: Protocol defining the standard Vault plugin contract
+- **VaultPluginBase**: Abstract base class for implementing custom Vault plugins  
+- **GoVaultPlugin**: Ready-to-use implementation for Go shared libraries
+- **VaultConfig**: Configuration management for Vault connections
+- **Error Types**: Structured exceptions for different failure modes
+
+### Quick Start
+
+```python
+from awx_plugins.interfaces import api
+
+# Configure Vault connection
+config = api.VaultConfig(
+    url="https://vault.example.com",
+    auth_method="token",
+    auth_config={"token": "hvs.your-token-here"}
+)
+
+# Use Go shared library plugin
+with api.GoVaultPlugin("/path/to/vault_plugin.so") as plugin:
+    # Authenticate
+    plugin.authenticate(config)
+    
+    # Retrieve secrets
+    request = api.VaultSecretRequest(path="secret/myapp")
+    response = plugin.get_secret(request)
+    
+    print(f"Secret: {response.data}")
+```
+
+### Building Go Shared Libraries
+
+Create a Go shared library that implements the required C-compatible interface:
+
+```bash
+go build -buildmode=c-shared -o vault_plugin.so vault_plugin.go
+```
+
+See the `examples/` directory for complete implementation examples.
+
+## Installation
+
+```bash
+pip install awx_plugins.interfaces
+```
+
+## Examples
+
+The `examples/` directory contains:
+
+- `example_vault_plugin.go` - Complete Go implementation
+- `example_usage.py` - Python usage demonstration
+- `README.md` - Detailed setup and usage instructions
+- `Makefile` - Build automation for Go shared library
+
+## Documentation
+
+For comprehensive documentation, visit [awx-plugins-interfaces.rtfd.io](https://awx-plugins-interfaces.rtfd.io).
+
+## Development
+
+This project uses modern Python development practices:
+
+- **Type Hints**: Full type annotation coverage
+- **Testing**: Comprehensive test suite with pytest
+- **Code Quality**: Pre-commit hooks with multiple linters
+- **CI/CD**: Automated testing and release workflows
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and contribution guidelines.
